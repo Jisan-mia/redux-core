@@ -9,7 +9,7 @@ const initialState = {
   value: 0
 }
 
-// action type constants
+// action identifiers / action type constants
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
 
