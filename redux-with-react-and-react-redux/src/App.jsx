@@ -17,7 +17,6 @@ function App() {
 
       <VariableCounter />
       <hr />
-
       <VariableCounter dynamic />
 
     </Provider>

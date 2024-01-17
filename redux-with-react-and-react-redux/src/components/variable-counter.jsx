@@ -20,7 +20,6 @@ function VariableCounter({
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
   return {
     counter: ownProps?.dynamic ? state.dynamicCounter.value : state.counter.value
   }
