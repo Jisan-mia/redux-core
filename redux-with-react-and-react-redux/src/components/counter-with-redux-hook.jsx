@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementCount, incrementCount } from '../redux/counter/actions';
 export default function ReduxHooksCounter() {
-  const counter = useSelector((state) => state.value)
+  const counter = useSelector((state) => state.counter.value)
   const dispatch = useDispatch();
 
-  const increment = (value) => {
-    dispatch(incrementCount(value))
+  const increment = () => {
+    dispatch(incrementCount())
   }
-  const decrement = (value) => {
-    dispatch(decrementCount(value))
+  const decrement = () => {
+    dispatch(decrementCount())
   }
 
   return (
@@ -17,8 +17,8 @@ export default function ReduxHooksCounter() {
         {counter}
       </h1>
       <div>
-        <button onClick={() => increment(5)}>Increment</button>
-        <button onClick={() => decrement(5)}>Decrement</button>
+        <button onClick={increment}>Increment</button>
+        <button onClick={decrement}>Decrement</button>
       </div>
     </div>
   )

@@ -21,14 +21,14 @@ function Counter({
 const mapStateToProps = (state, ownProps) => {
   console.log(ownProps)
   return {
-    counter: state.value
+    counter: state.counter.value
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    incrementCount: (value) => dispatch(incrementCount(value)),
-    decrementCount: (value) => dispatch(decrementCount(value))
+    incrementCount: () => dispatch(incrementCount()),
+    decrementCount: () => dispatch(decrementCount())
   }
 }
 
