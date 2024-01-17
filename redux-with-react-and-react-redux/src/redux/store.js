@@ -1,17 +1,8 @@
 import { applyMiddleware, legacy_createStore as createStore } from 'redux';
+import reduxLogger from 'redux-logger';
+import myLogger from './middlewares/my-logger';
 import rootReducer from './root-reducer';
 
-// first logger
-const myLogger = (store) => (next) => (action) => {
-  console.log('Action: ', action)
-  console.log('Before state: ', store.getState())
-  const upcomingState = [action].reduce(rootReducer, store.getState());
-  console.log('Upcoming state: ', upcomingState)
-
-
-  return next(action);
-}
-
-const store = createStore(rootReducer, applyMiddleware(myLogger));
+const store = createStore(rootReducer, applyMiddleware(reduxLogger, myLogger));
 
 export default store;
