@@ -1,44 +1,36 @@
-import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Todo from "./Todo";
 export default function TodoList() {
-  const [filterTodoList, setFilterTodoList] = useState();
   const todosFilter = useSelector((state) => state.todosFilter);
   const todoList = useSelector((state) => state.todos);
 
-  useEffect(() => {
-    if (todosFilter.status === "All") {
-      setFilterTodoList(
-        todoList.filter(
-          (todoItem) =>
-            todosFilter.colors.includes(todoItem.color) ||
-            !todosFilter.colors.length,
-        ),
-      );
-    } else if (todosFilter.status === "Incomplete") {
-      setFilterTodoList(
-        todoList.filter(
-          (todoItem) =>
-            todoItem.is_completed === false &&
-            (todosFilter.colors.includes(todoItem.color) ||
-              !todosFilter.colors.length),
-        ),
-      );
-    } else if (todosFilter.status === "Completed") {
-      setFilterTodoList(
-        todoList.filter(
-          (todoItem) =>
-            todoItem.is_completed === true &&
-            (todosFilter.colors.includes(todoItem.color) ||
-              !todosFilter.colors.length),
-        ),
-      );
+  const filterByStatus = (todo) => {
+    const {status} = todosFilter;
+
+    if (status === "Completed") {
+      return todo.is_completed;
+    } else if (status === "Incomplete") {
+      return !todo.is_completed;
+    } else {
+      return true;
     }
-  }, [todosFilter, todoList]);
+  };
+
+  const filterByColors = (todo) => {
+    const {colors} = todosFilter
+    if(colors.length > 0) {
+      return colors.includes(todo?.color)
+    } else {
+      return true
+    }
+  }
 
   return (
     <div className="mt-2 text-gray-700 text-sm max-h-[300px] overflow-y-auto">
-      {filterTodoList?.map((todo) => (
+      {todoList
+        .filter(filterByStatus)
+        .filter(filterByColors)
+        .map((todo) => (
         <Todo key={todo.id} todo={todo} />
       ))}
     </div>
