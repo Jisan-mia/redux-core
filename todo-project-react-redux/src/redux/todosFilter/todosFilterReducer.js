@@ -8,9 +8,25 @@ const initialState = {
 const todosFilterReducer = (state = initialState, action) => {
   switch(action.type) {
     case CHANGE_FILTER_STATUS:
-      return state
+      return {
+        ...state,
+        status: action.payload.status
+      }
     case CHANGE_FILTER_COLORS:
-      return state;
+      if(state.colors.includes(action.payload.color)) {
+        return {
+          ...state,
+          colors: state.colors.filter(existingColor => existingColor !== action.payload.color)
+        }
+      } else {
+        return {
+          ...state,
+          colors: [
+            ...state.colors,
+            action.payload.color
+          ]
+        }
+      }
     default:
       return state;
   }
