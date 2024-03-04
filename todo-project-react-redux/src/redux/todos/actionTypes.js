@@ -1,3 +1,4 @@
+export const TODO_LOADED = 'todo/loaded';
 export const ADD_TODO = 'todo/add_todo'
 export const TOGGLE_TODO = 'todo/toggle_todo'
 export const DELETE_TODO = 'todo/delete_todo'

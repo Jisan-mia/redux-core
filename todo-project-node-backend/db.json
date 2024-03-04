@@ -1,0 +1,41 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "delectus aut autem",
+      "is_completed": true,
+      "color": "green"
+    },
+    {
+      "id": "2",
+      "text": "quis ut nam facilis et officia qui",
+      "is_completed": false
+    },
+    {
+      "id": "4",
+      "text": "et porro tempora",
+      "is_completed": true,
+      "color": "red"
+    },
+    {
+      "id": "5",
+      "text": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      "is_completed": true
+    },
+    {
+      "id": "136b",
+      "text": "sdfal",
+      "is_completed": false
+    },
+    {
+      "id": "3523",
+      "text": "aksdf",
+      "is_completed": false
+    },
+    {
+      "id": "448e",
+      "text": "adsf",
+      "is_completed": false
+    }
+  ]
+}

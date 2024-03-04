@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import tickImage from "../assets/images/double-tick.png";
 import noteImage from "../assets/images/notes.png";
 import plusImage from "../assets/images/plus.png";
-import { addTodo, completeAllTodo, deleteCompletedTodo } from "../redux/todos/actions";
+import { completeAllTodo, deleteCompletedTodo } from "../redux/todos/actions";
+import addTodoThnk from "../redux/todos/thunk/addTodoThunk";
 
 export default function Header() {
   const [text, setText] = useState('');
@@ -15,7 +16,7 @@ export default function Header() {
       alert('Please write your todo!')
       return;
     }
-    dispatch(addTodo(text))
+    dispatch(addTodoThnk(text))
     setText('')
   }
   const handleCompleteAllTask = () => {

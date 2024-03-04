@@ -4,20 +4,23 @@ import {
   COMPLETE_ALL_TODO,
   DELETE_COMPLETED_TODO,
   DELETE_TODO,
+  TODO_LOADED,
   TOGGLE_TODO,
 } from "./actionTypes";
 
 const initialState = [
-  { id: 1, text: "My todo", is_completed: false, color: "green" },
 ];
 
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TODO_LOADED:
+      return [...initialState, ...action.payload]
+
     case ADD_TODO: {
       const newTodo = {
         id: Math.floor(Math.random() * 10000),
         text: action.payload,
-        color: "green", // yellow, red
+        // color: "green", // yellow, red
         is_completed: false,
       };
       return [...state, newTodo];
