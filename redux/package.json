@@ -1,0 +1,16 @@
+{
+  "name": "redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jisan Mia <jisanmia47@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "immer": "^10.0.4",
+    "redux": "^5.0.1"
+  }
+}
