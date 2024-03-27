@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@reduxjs/toolkit": "^2.2.2"
+    "@reduxjs/toolkit": "^2.2.2",
+    "redux-logger": "^3.0.6"
   }
 }
